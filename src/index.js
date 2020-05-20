@@ -8,6 +8,7 @@ const Button = (props) => (
 )
 
 
+
 const App = (props) => {
   const [selected, setSelected] = useState(0)
   const initialPoints = new Array(props.anecdotes.length).fill(0)
