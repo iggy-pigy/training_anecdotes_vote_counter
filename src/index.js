@@ -13,13 +13,13 @@ const App = (props) => {
   const [points, setPoints] = useState([])
   console.log(points)
 
-
   const setVoteCounter = () => {
     const points = new Array(anecdotes.length).fill(0)
     const copy = [...points]
     copy[selected] += 1
     setPoints(copy)
   }
+
 
   const setAnecdote = () => {
     //newAnecdotes == anecdotes[index]
@@ -31,6 +31,7 @@ const App = (props) => {
   return (
     <div>
       {props.anecdotes[selected]}
+      <h4> has {points[selected]} votes</h4>
       <div>
         <Button handleClick={() => setVoteCounter()} text="vote" />
         <Button handleClick={() => setAnecdote()} text="next anecdote" />
