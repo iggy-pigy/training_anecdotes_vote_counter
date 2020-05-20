@@ -7,13 +7,24 @@ const Button = (props) => (
   </button>
 )
 
+
 const App = (props) => {
   const [selected, setSelected] = useState(0)
-  console.log(selected)
+  const [points, setPoints] = useState([])
+  console.log(points)
+
+
+  const setVoteCounter = () => {
+    const points = new Array(anecdotes.length).fill(0)
+    const copy = [...points]
+    copy[selected] += 1
+    setPoints(copy)
+  }
 
   const setAnecdote = () => {
+    //newAnecdotes == anecdotes[index]
     const newAnecdote = Math.floor(Math.random() * anecdotes.length)
-    console.log(newAnecdote)
+    //console.log(newAnecdote)
     setSelected(newAnecdote)
   }
 
@@ -21,6 +32,7 @@ const App = (props) => {
     <div>
       {props.anecdotes[selected]}
       <div>
+        <Button handleClick={() => setVoteCounter()} text="vote" />
         <Button handleClick={() => setAnecdote()} text="next anecdote" />
       </div>
     </div>
