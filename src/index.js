@@ -10,11 +10,11 @@ const Button = (props) => (
 
 const App = (props) => {
   const [selected, setSelected] = useState(0)
-  const [points, setPoints] = useState([])
-  console.log(points)
+  const initialPoints = new Array(props.anecdotes.length).fill(0)
+  const [points, setPoints] = useState(initialPoints)
+
 
   const setVoteCounter = () => {
-    const points = new Array(anecdotes.length).fill(0)
     const copy = [...points]
     copy[selected] += 1
     setPoints(copy)
